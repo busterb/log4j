@@ -29,10 +29,6 @@
 		<system>GitHub</system>
 		<url>https://github.com/albfernandez/log4j/issues</url>
 	</issueManagement>
-	<ciManagement>
-		<system>Travis</system>
-		<url>https://travis-ci.org/albfernandez/log4j</url>
-	</ciManagement>
 	<inceptionYear>1999</inceptionYear>
 
 	<licenses>
