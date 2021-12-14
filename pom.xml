@@ -22,7 +22,7 @@
 	<artifactId>log4j</artifactId>
 	<packaging>bundle</packaging>
 	<name>Apache Log4j</name>
-	<version>1.2.18.ayg02</version>
+	<version>1.2.18-SNAPSHOT</version>
 	<description>Apache Log4j 1.2</description>
 	<url>https://github.com/albfernandez/log4j/</url>
 	<issueManagement>
