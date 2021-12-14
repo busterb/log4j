@@ -156,7 +156,7 @@ public class LocationInfo implements java.io.Serializable {
                           } else {
                               lineNumber = String.valueOf(line);
                           }
-                          StringBuffer buf = new StringBuffer();
+                          StringBuilder buf = new StringBuilder();
                           buf.append(className);
                           buf.append(".");
                           buf.append(methodName);

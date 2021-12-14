@@ -157,7 +157,7 @@ public class PropertyPrinter implements PropertyGetter.PropertyCallback {
   public static String capitalize(String name) {
     if (!name.isEmpty() && Character.isLowerCase(name.charAt(0))) {
       if (name.length() == 1 || Character.isLowerCase(name.charAt(1))) {
-        StringBuffer newname = new StringBuffer(name);
+        StringBuilder newname = new StringBuilder(name);
         newname.setCharAt(0, Character.toUpperCase(name.charAt(0)));
         return newname.toString();
       }

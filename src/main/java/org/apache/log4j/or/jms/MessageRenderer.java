@@ -42,7 +42,7 @@ public class MessageRenderer implements ObjectRenderer {
   public
   String  doRender(Object o) {
     if(o instanceof Message) {
-      StringBuffer sbuf = new StringBuffer();
+      StringBuilder sbuf = new StringBuilder();
       Message m = (Message) o;
       try {
 	sbuf.append("DeliveryMode=");
@@ -81,13 +81,6 @@ public class MessageRenderer implements ObjectRenderer {
 
 	sbuf.append(", Type=");
 	sbuf.append(m.getJMSType());
-
-	//Enumeration enum = m.getPropertyNames();
-	//while(enum.hasMoreElements()) {
-	//  String key = (String) enum.nextElement();
-	//  sbuf.append("; "+key+"=");
-	//  sbuf.append(m.getStringProperty(key));
-	//}
 
       } catch(JMSException e) {
 	LogLog.error("Could not parse Message.", e);
