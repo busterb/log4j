@@ -1,5 +1,4 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
@@ -97,6 +96,7 @@ public class SMTPAppender extends AppenderSkeleton
   private String smtpUsername;
   private String smtpPassword;
   private String smtpProtocol;
+  private boolean checkServerIdentity = true;
   private int smtpPort = -1;
   private boolean smtpDebug = false;
   private int bufferSize = 512;
@@ -205,7 +205,11 @@ public class SMTPAppender extends AppenderSkeleton
     if (smtpProtocol != null) {
         props.put("mail.transport.protocol", smtpProtocol);
         prefix = "mail." + smtpProtocol;
-    }
+        if ("smtps".equals(smtpProtocol)) {
+        	props.put("mail.smtp.ssl.checkserveridentity", Boolean.toString(this.checkServerIdentity));
+        	props.put("mail.smtps.ssl.checkserveridentity", Boolean.toString(this.checkServerIdentity));        	
+        }
+    }    
     if (smtpHost != null) {
       props.put(prefix + ".host", smtpHost);
     }
@@ -258,7 +262,7 @@ public class SMTPAppender extends AppenderSkeleton
   }
 
  /**
-     This method determines if there is a sense in attempting to append.
+     This method determines if there is a sense in attempticheckserveridentityng to append.
 
      <p>It checks whether there is a set output target and also if
      there is a set layout. If these checks fail, then the boolean
@@ -771,6 +775,30 @@ public class SMTPAppender extends AppenderSkeleton
   public final void setSendOnClose(final boolean val) {
         sendOnClose = val;
   }
+
+
+  
+  /**
+   * get check server identity flag (default to true) 
+   * @return if true server identity is checked
+   * @since 1.2.18
+   */
+	public boolean getCheckServerIdentity() {
+		return checkServerIdentity;
+	}
+
+
+	/**
+	 * set to check server identity flag 
+	 * @param checkServerIdentity
+	 * @since 1.2.18
+	 */
+	public void setCheckServerIdentity(boolean checkServerIdentity) {
+		this.checkServerIdentity = checkServerIdentity;
+	}
+  
+  
+  
 
 }
 
